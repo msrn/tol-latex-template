@@ -2,3 +2,5 @@
 
 /usepackage{tol}
 Check .tex file for example
+
+Based on [Gradupohja by Mutjake](https://github.com/Mutjake/gradupohja)
