@@ -1,6 +1,9 @@
-# Unofficial Latex template for TOL theses
+# Unofficial LaTeX template for TOL* theses
+
+Made for [University of Oulu's Information Processing Science](https://www.oulu.fi/ips/) -theses
 
 /usepackage{tol}
+
 Check .tex file for example
 
 Based on [Gradupohja by Mutjake](https://github.com/Mutjake/gradupohja)
@@ -9,3 +12,9 @@ Also available at [Overleaf as template](https://www.overleaf.com/latex/template
 ## Todo
 
 - Table, image labels etc styling
+
+# Epävirallinen LaTeX -pohja TOL*:n opinnäytetöille
+
+Tehty [Oulun Yliopiston Tietojenkäsittelytieteiden -opinnäytetöille](https://www.oulu.fi/tol/)
+
+* = Stands for finnish term *Tietojenkäsittelytieteidenlaito* = Department of Information Processing Science
