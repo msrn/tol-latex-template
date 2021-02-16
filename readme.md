@@ -17,4 +17,4 @@ Also available at [Overleaf as template](https://www.overleaf.com/latex/template
 
 Tehty [Oulun Yliopiston Tietojenkäsittelytieteiden -opinnäytetöille](https://www.oulu.fi/tol/)
 
-* = Stands for finnish term *Tietojenkäsittelytieteidenlaito* = Department of Information Processing Science
+``* = Stands for finnish term Tietojenkäsittelytieteidenlaitos = Department of Information Processing Science``
