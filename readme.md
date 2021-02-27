@@ -1,4 +1,5 @@
 # Unofficial LaTeX template for TOL* theses
+Approved for usage though
 
 Made for [University of Oulu's Information Processing Science](https://www.oulu.fi/ips/) -theses
 
