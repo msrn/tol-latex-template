@@ -4,6 +4,7 @@ Made for [University of Oulu's Information Processing Science](https://www.oulu.
 
 /usepackage{tol}
 
+``finnish-apa.lbx`` is now included in the official biblatex-apa package.
 Check .tex file for example
 
 Based on [Gradupohja by Mutjake](https://github.com/Mutjake/gradupohja)
