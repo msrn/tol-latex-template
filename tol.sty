@@ -30,13 +30,14 @@
 %
 % Original Author: Teemu Rytilahti (tol-orig.sty)
 % Modified by: Juho Myllylahti (2015?)
-% Additional modifications: Mikael Saarinen (2021-02-01)
+% Additional modifications: Mikael Saarinen (2021-07-17)
 % Comments, ideas and patches welcome!
+% Github: https://github.com/msrn/tol-latex-template
 
 
-\usepackage[hidelinks]{hyperref} %Generate links and hide the ugly border
-\usepackage{graphicx} %images
-\usepackage{chngpage} %changing layout per page basis, needed for title page
+\usepackage{hyperref} %% PDF generation settings. Options at the bottom of this file
+\usepackage{graphicx} %% images
+\usepackage{chngpage} %% changing layout per page basis, needed for title page
 \usepackage{calc}
 
 %%%%%%%%%%%%%%%%%
@@ -56,11 +57,14 @@
 \DeclareLanguageMapping{british}{british-apa}
 %\DeclareLanguageMapping{finnish}{finnish-apa} %finnish support 
 
-%basic settings
+%%%%%%%%%%%%%%%%%%%%%
+%%%%GENERAL STYLE%%%%
+%%%%%%%%%%%%%%%%%%%%%
 \usepackage[a4paper,margin=2cm,left=4cm]{geometry}
+\usepackage{parskip}
 \setlength{\parskip}{12pt} % line between paragraphs
 \setlength{\parindent}{0pt} % don't indent paragraphs
-
+%\sloppy
 %general layout
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -72,29 +76,35 @@
 %%%%%%%%%%%%%
 %%%%FONTS%%%%
 %%%%%%%%%%%%%
-% If not available change: 
-% Times New Roman = Liberation Serif (main),
-% Arial = Liberation Sans (sansfont),
-% Courier New = Liberation Mono (monofont)
+%%%% If not available change: 
+%%%% Times New Roman = Liberation Serif (main),
+%%%% Arial = Liberation Sans (sansfont),
+%%%% Courier New = Liberation Mono (monofont)
 \usepackage{fontspec}
 \usepackage{titlesec}
+%%%% linux
+%\setmainfont[Ligatures={TeX},Mapping=tex-text]{Liberation Serif}
+%\setsansfont[Ligatures={TeX},Mapping=tex-text]{Liberation Sans}
+%\setmonofont[Ligatures={TeX},Mapping=tex-text, Scale=0.8]{Liberation Mono}
+
+%%%% windows
 \setmainfont[Ligatures={TeX},Mapping=tex-text]{Times New Roman}
 \setsansfont[Ligatures={TeX},Mapping=tex-text]{Arial}
 \setmonofont[Ligatures={TeX},Mapping=tex-text, Scale=0.8]{Courier New}
 
-% Headings = Sections
+%%%% Headings = Sections
 %\newfontfamily\sectionfont{Arial}
 \setcounter{secnumdepth}{4} % Count up to heading 3
-% Heading 0
+%%%% Heading 0
 \titleformat*{\section}{\sffamily\Large\mdseries}
-% Heading 1
+%%%% Heading 1
 \titleformat*{\subsection}{\sffamily\large\mdseries}
-% Heading 2
+%%%% Heading 2
 \titleformat*{\subsubsection}{\sffamily\large\mdseries}
-% Heading 3 use \paragraph
+%%%% Heading 3 use \paragraph
 \titleformat{\paragraph}[hang]{\sffamily\large\mdseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{0.5em}
-% Heading 4 \subparagraph
+%%%% Heading 4 \subparagraph
 \titleformat{\subparagraph}[hang]{\sffamily\normalsize\itshape}{\thesubparagraph}{1em}{}
 \titlespacing*{\subparagraph}{0pt}{3.25ex plus 1ex minus .2ex}{0.5em}
 
@@ -103,73 +113,74 @@
 %%%%TABLE OF CONTENTS%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{tocloft}
-% Toc title font
+%%%% Toc title font
 \renewcommand*\cfttoctitlefont{\sffamily\mdseries\Large}
 %\renewcommand{\cfttoctitlefont}{\fontspec{Times New roman}\Large\mdseries}
-\renewcommand{\cftaftertoctitleskip}{25pt} % Margin between Toc listing and heading
-\setcounter{tocdepth}{5} % Show all (sub)sections and (sub)paragraphs in TOC
+\renewcommand{\cftaftertoctitleskip}{24pt} %%%% Margin between Toc listing and heading
+\setcounter{tocdepth}{5} %%%% Show all (sub)sections and (sub)paragraphs in TOC
 
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % dots to seections
-\renewcommand{\cftsecfont}{\normalfont} % normal font for sections instead of bolded
-\renewcommand{\cftsecpagefont}{\normalfont} % don't bold section's page numbers
-\renewcommand{\cftbeforesecskip}{0pt} % no lineskips between sections
-\renewcommand{\cftdotsep}{0} % space between dots
-
-
-
-%\setlength\cftparskip{10pt} % space between toc entries
-
-%page break before references page
-%\let\stdbibliography\bibliography
-%\renewcommand\bibliography{\newpage\stdbibliography}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %%%% dots to seections
+\renewcommand{\cftsecfont}{\normalfont} %%%% normal font for sections instead of bolded
+\renewcommand{\cftsecpagefont}{\normalfont} %%%% don't bold section's page numbers
+\renewcommand{\cftbeforesecskip}{0pt} %%%% no lineskips between sections
+\renewcommand{\cftdotsep}{0} %%%% space between dots
 
 %%%%%%%%%%%%%%%%%%%%
 %%%%TITLE PAGE %%%%%
 %%%%%%%%%%%%%%%%%%%%
-%ability to set variables for titlepage
-\def\course{\def\course}
+%%%% ability to set variables for titlepage usage eg \institute{University Of Oulu}
+\def\course{\def\course} 
+\def\institute{\def\institute}
+\def\faculty{\def\faculty}
 \def\email{\def\email}
 \def\studentno{\def\studentno}
 \def\title{\def\title}
 
 \def\maketitle{{
-\begin{titlepage}
-\thispagestyle{empty}
-\begin{adjustwidth}{-2cm}{0cm}
-\vfill
-
-\vspace*{4.7cm}
-\begin{center}
- \includegraphics[height=1.11in,width=2.44in]{style/oylogo.png} \\
- \mbox{ }\\
- \vspace*{2.5cm}
- \begin{LARGE}\sffamily\textbf{\title}\end{LARGE} \\
-\end{center}
-
-\vfill
-
-\begin{flushright}
-\parbox[l][4cm]{7cm}{
- University of Oulu \\
- Department of Information Processing Science \\
- \course \\
- %\mbox{ }\\
- \@author \\% \ (\studentno) \\
- %\email \\
- \@date
-
+		\begin{titlepage}
+			\thispagestyle{empty}
+			\begin{adjustwidth}{-2cm}{0cm}
+				\vfill
+				
+				%%%% Logo
+				\vspace*{4.7cm}
+				\begin{center}
+					\includegraphics[height=1.11in,width=2.44in]{style/oylogo.png} \\
+					\mbox{ }\\
+					\vspace*{2.5cm}
+					\begin{LARGE}\sffamily\textbf{\title}\end{LARGE} \\
+				\end{center}
+				
+				\vfill
+				
+				
+				%%%% Comment the variables you want or don't use in the title page
+				\begin{flushright}
+					\parbox[l][4cm]{7cm}{
+						\institute \\
+						\faculty \\
+						\course \\
+						%\mbox{ }\\
+						\@author \\ \ %\studentno \\
+						%\email \\
+						\@date
+						
+					}
+				\end{flushright}
+			\end{adjustwidth}
+			
+	\end{titlepage}}
 }
-\end{flushright}
-\end{adjustwidth}
 
-\end{titlepage}}
-}
 
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%PDF SETTINGS %%%%%
+%%%%%%%%%%%%%%%%%%%%%%
 \def\hypersetupdefault{
-\hypersetup{
-  pdfauthor={\@author},
-  pdftitle={\course - \title},
-  colorlinks={false},
-  pdfborder={0 0 0 0},
-}
+	\hypersetup{
+		pdfauthor={\@author},
+		pdftitle={\course - \title},
+		colorlinks={false},
+		pdfborder={0 0 0 0},
+	}
 }
